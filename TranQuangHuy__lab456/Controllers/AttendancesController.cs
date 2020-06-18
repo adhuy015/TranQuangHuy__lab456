@@ -8,6 +8,9 @@ using System.Web.Http;
 using System.Web.Mvc;
 using TranQuangHuy__lab456.DTOs;
 using TranQuangHuy__lab456.Models;
+using System.Data.Entity;
+using TranQuangHuy__lab456.ViewModels;
+using Microsoft.Owin.Security.Provider;
 
 namespace TranQuangHuy__lab456.Controllers
 {
@@ -18,7 +21,7 @@ namespace TranQuangHuy__lab456.Controllers
         {
             _dbContext = new ApplicationDbContext();
         }
-        [System.Web.Mvc.HttpPost]
+        [System.Web.Http.HttpPost]
         public IHttpActionResult Attend(AttendanceDto attendanceDto)
         {
             var userId = User.Identity.GetUserId();
@@ -32,6 +35,18 @@ namespace TranQuangHuy__lab456.Controllers
             _dbContext.Attendances.Add(attendance);
             _dbContext.SaveChanges();
             return Ok();
+        }
+        [System.Web.Http.HttpDelete]
+        public IHttpActionResult DeleteAttendance(int id)
+        {
+            var userId = User.Identity.GetUserId();
+            var attendance = _dbContext.Attendances
+                .SingleOrDefault(a => a.AttendeeId == userId && a.CourseId == id);
+            if (attendance == null)
+                return NotFound();
+            _dbContext.Attendances.Remove(attendance);
+            _dbContext.SaveChanges();
+            return Ok(id);
         }
     }
 }
