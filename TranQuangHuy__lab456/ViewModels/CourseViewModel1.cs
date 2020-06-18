@@ -7,7 +7,7 @@ using TranQuangHuy__lab456.Models;
 
 namespace TranQuangHuy__lab456.ViewModels
 {
-    public class CourseViewModel
+    public class CourseViewModel1
     {   
         [Required]
         public string Place { get; set; }

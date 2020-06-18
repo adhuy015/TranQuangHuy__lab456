@@ -19,7 +19,7 @@ namespace TranQuangHuy__lab456.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(CourseViewModel viewModel)
+        public ActionResult Create(CourseViewModel1 viewModel)
         {
             if (!ModelState.IsValid)
             { 
