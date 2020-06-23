@@ -20,29 +20,23 @@ namespace TranQuangHuy__lab456.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(/*CourseViewModel viewModel*/)
+        public ActionResult Create(CourseViewModel viewModel)
         {
-            //if (!ModelState.IsValid)
-            //{ 
-            //    viewModel.Categories = _dbContext.Categories.ToList();
-            //    return View("Create", viewModel);
-            //}
-            //var course = new Course
-            //{
-            //    LecturerId=User.Identity.GetUserId(),
-            //    DateTime=viewModel.GetDateTime(),
-            //    CategoryId=viewModel.Category,
-            //    Place=viewModel.Place
-            //};
-            //_dbContext.Courses.Add(course);
-            //_dbContext.SaveChanges();
-            //return RedirectToAction("Index", "Home");
-            var viewModel = new CourseViewModel
+            if (!ModelState.IsValid)
             {
-                Categories = _dbContext.Categories.ToList(),
-                Heading = "Add Course"
+                viewModel.Categories = _dbContext.Categories.ToList();
+                return View("Create", viewModel);
+            }
+            var course = new Course
+            {
+                LecturerId = User.Identity.GetUserId(),
+                DateTime = viewModel.GetDateTime(),
+                CategoryId = viewModel.Category,
+                Place = viewModel.Place
             };
-            return View(viewModel);
+            _dbContext.Courses.Add(course);
+            _dbContext.SaveChanges();
+            return RedirectToAction("Index", "Home");
         }
         [Authorize]
         public ActionResult Mine()

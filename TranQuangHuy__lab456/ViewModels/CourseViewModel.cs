@@ -27,9 +27,9 @@ namespace TranQuangHuy__lab456.ViewModels
         {
             return DateTime.Parse(string.Format("{0} {1}", Date, Time));
         }
-        public string Action
-        {
-            get { return (Id != 0) ? "Update" : "Create"; }
-        }
+        //public string Action
+        //{
+        //    get { return (Id != 0) ? "Update" : "Create"; }
+        //}
     }
 }
