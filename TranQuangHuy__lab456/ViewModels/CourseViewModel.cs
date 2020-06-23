@@ -14,7 +14,7 @@ namespace TranQuangHuy__lab456.ViewModels
         [Required]
         public string Place { get; set; }
         [Required]
-        [ValidTime]
+        [FutureDate]
         public string Date { get; set; }
         [Required]
         [ValidTime]

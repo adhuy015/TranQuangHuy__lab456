@@ -20,7 +20,7 @@ namespace TranQuangHuy__lab456.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(CourseViewModel viewModel)
+        public ActionResult Create(/*CourseViewModel viewModel*/)
         {
             //if (!ModelState.IsValid)
             //{ 
@@ -37,12 +37,12 @@ namespace TranQuangHuy__lab456.Controllers
             //_dbContext.Courses.Add(course);
             //_dbContext.SaveChanges();
             //return RedirectToAction("Index", "Home");
-            var ViewModel = new CourseViewModel
+            var viewModel = new CourseViewModel
             {
-                Categories=_dbContext.Categories.ToList(),
+                Categories = _dbContext.Categories.ToList(),
                 Heading = "Add Course"
             };
-            return View(ViewModel);
+            return View(viewModel);
         }
         [Authorize]
         public ActionResult Mine()
