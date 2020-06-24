@@ -9,7 +9,7 @@ namespace TranQuangHuy__lab456.ViewModels
 {
     public class CoursesViewModel
     {
-        public IEnumerable<Course> UpcommingCourse { get; set; }
+        public IEnumerable<Course> UpcommingCourses { get; set; }
         public bool ShowAction { get; set; }
     }
 }

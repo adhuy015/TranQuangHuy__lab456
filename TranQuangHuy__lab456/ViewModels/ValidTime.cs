@@ -7,7 +7,7 @@ using System.Web;
 
 namespace TranQuangHuy__lab456.ViewModels
 {
-    public class ValidTime:ValidationAttribute
+    public class ValidTime : ValidationAttribute
     {
         public override bool IsValid(object value)
         {

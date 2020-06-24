@@ -16,7 +16,6 @@ namespace TranQuangHuy__lab456.Controllers
         {
             _dbContext = new ApplicationDbContext();
         }
-        // GET: Course
         [Authorize]
         public ActionResult Create()
         {

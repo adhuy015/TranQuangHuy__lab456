@@ -16,7 +16,7 @@ namespace TranQuangHuy__lab456.Controllers
 {
     public class AttendancesController : ApiController
     {
-        private ApplicationDbContext _dbContext;
+        private readonly ApplicationDbContext _dbContext;
         public AttendancesController()
         {
             _dbContext = new ApplicationDbContext();
