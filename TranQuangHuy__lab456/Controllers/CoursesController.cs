@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using Microsoft.Ajax.Utilities;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -66,6 +67,15 @@ namespace TranQuangHuy__lab456.Controllers
                 .Include(c => c.Category)
                 .ToList();
             return View(courses);
+        }
+        public ActionResult Create()
+        {
+            var viewModel = new CourseViewModel
+            {
+                Categories = _dbContext.Categories.ToList(),
+                Heading = " Add Course"
+            };
+            return View(viewModel);
         }
         [Authorize]
         public ActionResult Edit(int id)

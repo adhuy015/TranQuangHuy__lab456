@@ -16,7 +16,7 @@ namespace TranQuangHuy__lab456.Controllers.Api
         {
             _dbContext = new ApplicationDbContext();
         }
-        [HttpPost]
+        [HttpDelete]
         public IHttpActionResult Cancel(int id)
         {
             var userId = User.Identity.GetUserId();
@@ -26,32 +26,6 @@ namespace TranQuangHuy__lab456.Controllers.Api
             course.IsCanceled = true;
             _dbContext.SaveChanges();
             return Ok();
-        }
-        // GET api/<controller>
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET api/<controller>/5
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/<controller>
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT api/<controller>/5
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<controller>/5
-        public void Delete(int id)
-        {
         }
     }
 }
